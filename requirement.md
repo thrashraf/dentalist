@@ -2,7 +2,7 @@
 
 ## 1. Your Clinic’s Basics
 
-* **Name:** KLINIK PERGIGIAN RAZZ
+* **Name:** Klinik Pergigian Razz
 * **Logo:** *\[Insert logo image file: JPEG/PNG]*
 * **Tagline:** Where beautiful smile begins
 

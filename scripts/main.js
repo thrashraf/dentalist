@@ -132,9 +132,66 @@ sections.forEach(function(param) {
 });
 
 
-// <a> Element PreventDefault
+// WhatsApp Contact Form Handler
+const contactForm = document.getElementById("contactForm");
+if (contactForm) {
+    contactForm.addEventListener("submit", function(e) {
+        e.preventDefault();
+        
+        const nameInput = document.getElementById("name");
+        const messageInput = document.getElementById("message");
+        
+        const name = nameInput.value.trim();
+        const message = messageInput.value.trim();
+        
+        if (name && message) {
+            // Format the WhatsApp message
+            const whatsappMessage = `Hello! My name is ${name}.%0A%0AMessage: ${message}%0A%0AThank you!`;
+            
+            // WhatsApp number (using the clinic's number)
+            const whatsappNumber = "60143442294";
+            
+            // Create WhatsApp URL
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+            
+            // Open WhatsApp
+            window.open(whatsappURL, '_blank');
+            
+            // Clear the form
+            nameInput.value = "";
+            messageInput.value = "";
+            
+            // Show success message (optional)
+            alert("Redirecting to WhatsApp...");
+        } else {
+            alert("Please fill in both name and message fields.");
+        }
+    });
+}
+
+// Smooth scroll functionality for anchor links
+function smoothScrollToSection(targetId) {
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+        targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+}
+
+// <a> Element PreventDefault (but allow anchor links to work)
 aElement.forEach(function(item){
     item.addEventListener("click", function(e){
-        e.preventDefault();
+        const href = item.getAttribute('href');
+        // If it's an anchor link (starts with #), handle smooth scroll
+        if (href && href.startsWith('#')) {
+            e.preventDefault();
+            const targetId = href.substring(1); // Remove the # symbol
+            smoothScrollToSection(targetId);
+        } else {
+            // For other links, prevent default as before
+            e.preventDefault();
+        }
     });
 });

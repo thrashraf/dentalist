@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://klinikpergigianrazz.com/sitemap.xml
+
+# Block access to sensitive files
+Disallow: /assets/images/screenshots/
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /*.log$
+
+# Allow access to CSS and JS for proper rendering
+Allow: /styles/
+Allow: /scripts/
+Allow: /assets/
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
