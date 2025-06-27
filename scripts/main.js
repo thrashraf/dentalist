@@ -249,3 +249,39 @@ document.getElementById('nav-link').addEventListener('click', e => {
       }
     });
   });
+
+
+   const tiktokLink = document.getElementById('tiktok-link');
+  const fallbackUrl = 'https://www.tiktok.com/@razzdental';
+
+  tiktokLink.addEventListener('click', e => {
+    e.preventDefault();
+    const ua = navigator.userAgent;
+
+    let url;
+    if (/Android/i.test(ua)) {
+      // Use Android Intent URI: opens app if installed, else fallback to browser
+      url = 
+        'intent://www.tiktok.com/@razzdental'
+        + '#Intent;package=com.zhiliaoapp.musically;'
+        + 'scheme=https;'
+        + 'S.browser_fallback_url='
+        + encodeURIComponent(fallbackUrl)
+        + ';end';
+    } else if (/iPhone|iPad|iPod/i.test(ua)) {
+      // Standard iOS scheme
+      url = 'tiktok://user?username=razzdental';
+    } else {
+      // Desktop or unknown — just open the web page
+      window.open(fallbackUrl, '_blank');
+      return;
+    }
+
+    // Try to open the app...
+    window.location = url;
+
+    // ...and if after 500ms the app didn't handle it, fall back to web
+    setTimeout(() => {
+      window.open(fallbackUrl, '_blank');
+    }, 500);
+  });
