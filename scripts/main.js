@@ -227,3 +227,25 @@ document.getElementById('nav-link').addEventListener('click', e => {
       setTimeout(() => tryScheme(i + 1), 500);
     })(0);
   });
+
+  const isMobile = () =>
+    /android|iphone|ipad|ipod/i.test(navigator.userAgent || "");
+
+  document.querySelectorAll('.social-link').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const fallback = link.dataset.fallback;
+
+      if (isMobile()) {
+        // Try the native app...
+        window.location = link.href;
+        // ...then after a short pause, drop back to web
+        setTimeout(() => {
+          window.open(fallback, '_blank');
+        }, 500);
+      } else {
+        // Desktop / non-mobile: just open web directly
+        window.open(fallback, '_blank');
+      }
+    });
+  });
