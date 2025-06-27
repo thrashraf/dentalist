@@ -180,7 +180,7 @@ function smoothScrollToSection(targetId) {
     }
 }
 
-// <a> Element PreventDefault (but allow anchor links to work)
+ // <a> Element PreventDefault (but allow anchor links to work)
 aElement.forEach(function(item){
     item.addEventListener("click", function(e){
         const href = item.getAttribute('href');
@@ -189,9 +189,41 @@ aElement.forEach(function(item){
             e.preventDefault();
             const targetId = href.substring(1); // Remove the # symbol
             smoothScrollToSection(targetId);
-        } else {
-            // For other links, prevent default as before
-            e.preventDefault();
         }
+        // Allow default behavior for other links (tel:, mailto:, external URLs)
     });
 });
+
+document.getElementById('nav-link').addEventListener('click', e => {
+    e.preventDefault();
+
+    const lat = 1.5672702, lng = 103.6124648;
+    const label = encodeURIComponent('Klinik Pergigian Razz');
+
+    // deep-link URLs
+    const schemes = [
+      // Waze
+      `waze://?ll=${lat},${lng}&navigate=yes`,
+      // Google Maps on Android/iOS
+      `comgooglemaps://?q=${lat},${lng}(${label})`,
+      // Apple Maps on iOS
+      `maps://?q=${label}&ll=${lat},${lng}`,
+      // geo: fallback on Android
+      `geo:${lat},${lng}?q=${lat},${lng}(${label})`
+    ];
+
+    // final browser fallback
+    const webUrl = `https://www.google.com/maps/place/${label}/@${lat},${lng},17z`;
+
+    // try each scheme in sequence, fallback after short delay
+    (function tryScheme(i) {
+      if (i >= schemes.length) {
+        window.open(webUrl, '_blank');
+        return;
+      }
+      // attempt to open native app
+      window.location = schemes[i];
+      // if after 500ms nothing happened, try next
+      setTimeout(() => tryScheme(i + 1), 500);
+    })(0);
+  });
