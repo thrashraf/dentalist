@@ -517,6 +517,20 @@
             transform: scale(1.2) !important;
         }
     </style>
+    <style>
+        /* Custom Swiper Navigation Button Size Override */
+        .swiper-button-prev.reviews-prev,
+        .swiper-button-next.reviews-next {
+            width: 30px !important;
+            height: 30px !important;
+            margin-top: -20px !important;
+        }
+
+        .swiper-button-prev.reviews-prev::after,
+        .swiper-button-next.reviews-next::after {
+            font-size: 20px !important;
+        }
+    </style>
     <!-- Scripts -->
     <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script defer src="./scripts/main.js"></script>
@@ -767,10 +781,9 @@
                         <h1 class="text-4xl leading-snug lg:text-5xl lg:leading-snug font-bold text-slate-800">
                             Best Dental Clinic in Johor Bahru - Klinik Pergigian Razz
                         </h1>
-                        <p class="text-slate-800/70 font-medium text-base lg:text-lg w-[90%]">Expert dental care in
-                            Johor Bahru! Professional dental services including implants, root canal treatment, teeth
-                            whitening, and orthodontic treatments. Modern facilities with experienced dentists you can
-                            trust.</p>
+                        <p class="text-slate-800/70 font-medium text-base lg:text-lg w-[90%]">We believe every smile has
+                            a story—and we’re here to make yours beautiful, healthy, and confident. At Razz Dental, we
+                            combine advanced dental care with a personal touch that makes you feel right at home.</p>
                         <a class="h-12 w-44 bg-primary text-white text-sm font-bold text-center leading-[3rem] rounded-xl transition-colors hover:bg-indigo-800"
                             href="#contact" title="Book dental appointment at Klinik Pergigian Razz">Book
                             appointment</a>
@@ -809,7 +822,7 @@
                         class="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-5 child:transition-all child-hover:shadow-2xl mt-6 lg:mt-0 child-hover:shadow-slate-400/20 child-hover:border-gray-100 child:cursor-pointer">
                         <!-- Service item -->
                         <div class="services-item rounded-[32px] border p-4 flex flex-col gap-y-4">
-                            <img class="w-full rounded-[32px]" src="./assets/images/dentures.webp"
+                            <img class="w-full rounded-[32px]" src="./assets/images/service_1.webp"
                                 alt="Basic Treatment Service - Essential dental care at Klinik Pergigian Razz Johor Bahru">
                             <div class="text-center space-y-2">
                                 <h4 class="text-slate-800 font-bold">Basic Treatment</h4>
@@ -822,7 +835,7 @@
                         </div>
                         <!-- Service item -->
                         <div class="services-item rounded-[32px] border p-4 flex flex-col gap-y-4">
-                            <img class="w-full rounded-[32px]" src="./assets/images/implants.webp"
+                            <img class="w-full rounded-[32px]" src="./assets/images/service_2.webp"
                                 alt="Cosmetic Dentistry Service - Aesthetic dental treatments at Klinik Pergigian Razz">
                             <div class="text-center space-y-2">
                                 <h4 class="text-slate-800 font-bold">Cosmetic Dentistry</h4>
@@ -834,7 +847,7 @@
                         </div>
                         <!-- Service item -->
                         <div class="services-item rounded-[32px] border p-4 flex flex-col gap-y-4">
-                            <img class="w-full rounded-[32px]" src="./assets/images/whiting.webp"
+                            <img class="w-full rounded-[32px]" src="./assets/images/service_3.webp"
                                 alt="Orthodontic Treatment Service - Braces and aligners at Klinik Pergigian Razz Johor Bahru">
                             <div class="text-center space-y-2">
                                 <h4 class="text-slate-800 font-bold">Orthodontic Treatment</h4>
@@ -847,7 +860,7 @@
                         </div>
                         <!-- Service item -->
                         <div class="services-item rounded-[32px] border p-4 flex flex-col gap-y-4">
-                            <img class="w-full rounded-[32px]" src="./assets/images/rootcanal.webp"
+                            <img class="w-full rounded-[32px]" src="./assets/images/service_4.webp"
                                 alt="Denture Service - Custom dentures at Klinik Pergigian Razz Johor Bahru">
                             <div class="text-center space-y-2">
                                 <h4 class="text-slate-800 font-bold">Denture</h4>
@@ -878,10 +891,17 @@
                         <h3 class="text-slate-800 text-4xl leading-snug font-bold sm:max-w-screen-sm">Professional
                             dental care from our experienced team.</h3>
                         <!-- Description -->
-                        <p class="max-w-lg lg:max-w-md mx-auto lg:mx-0 text-[15px] font-medium text-slate-800/70">Our
-                            skilled team is here to address your oral health needs with utmost care and expertise. We're
-                            committed to providing quality dental care for patients of all ages.</p>
+                        <p class="max-w-lg lg:max-w-md mx-auto lg:mx-0 text-[15px] font-medium text-slate-800/70">
+                            Founded with the belief that dental care should be both affordable and exceptional, Razz
+                            Dental was created to break the fear around dentistry and offer a space that feels safe,
+                            honest, and personal.</p>
                         <!-- Button Call to Action -->
+                        <p
+                            class="max-w-lg lg:max-w-md mx-auto lg:mx-0 text-[15px] font-medium text-slate-800/70 text-center">
+                            Whether you're a nervous first-timer or a regular patient, our goal is always the same: </p>
+                        <p class="max-w-lg lg:max-w-md mx-auto lg:mx-0 text-[15px] font-medium text-slate-800/70">👉 To
+                            make your experience comfortable, effective, and empowering.</p>
+
                         <a class="h-12 w-44 mx-auto bg-primary text-white text-sm font-bold text-center leading-[3rem] mt-6 lg:mt-8 lg:mx-0 rounded-xl transition-colors hover:bg-indigo-800"
                             href="#contact">Book appointment</a>
                     </div>
@@ -968,32 +988,417 @@
                     <div class="flex flex-col gap-y-4 text-center lg:text-start">
                         <!-- Title -->
                         <h2 class="text-sm text-primary font-bold">EXPERTS IN DENTAL</h2> <!-- Subtitle -->
-                        <h3 class="text-slate-800 text-4xl leading-snug font-bold sm:max-w-screen-sm">First class
-                            dentistry, from top dentists.</h3>
-                        <!-- Description -->
-                        <p class="max-w-lg lg:max-w-md mx-auto lg:mx-0 text-[15px] font-medium text-slate-800/70">At
-                            Klinik Pergigian Razz, we provide comprehensive dental care with modern equipment and
-                            experienced professionals.</p>
-                        <div
-                            class="flex flex-col gap-y-2 child:text-[#181945] child:text-[15px] child:font-medium mt-4">
-                            <p class="flex items-center gap-x-2">
-                                <svg class="w-5 h-5 text-primary">
-                                    <use href="#check-circle"></use>
-                                </svg>
-                                Top quality dental team
-                            </p>
-                            <p class="flex items-center gap-x-2">
-                                <svg class="w-5 h-5 text-primary">
-                                    <use href="#check-circle"></use>
-                                </svg>
-                                State of the art dental services
-                            </p>
-                            <p class="flex items-center gap-x-2">
-                                <svg class="w-5 h-5 text-primary">
-                                    <use href="#check-circle"></use>
-                                </svg>
-                                Discount on all dental treatment
-                            </p>
+                        <h3 class="text-slate-800 text-4xl leading-snug font-bold sm:max-w-screen-sm">What Peoples say
+                            about us</h3>
+                        <!-- Customer Reviews Carousel - Premium Design -->
+                        <div class="max-w-lg lg:max-w-md mx-auto lg:mx-0 mt-8">
+                            <div class="swiper swiper-customer-reviews relative overflow-visible">
+                                <div class="swiper-wrapper">
+                                    <!-- Review 1 - Premium Card Design -->
+                                    <div class="swiper-slide pb-8">
+                                        <div class="group relative">
+                                            <!-- Main Card -->
+                                            <div
+                                                class="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 relative overflow-hidden transform group-hover:-translate-y-1">
+                                                <!-- Animated Background Glow -->
+                                                <div
+                                                    class="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                                </div>
+
+                                                <!-- Floating Quote Icon -->
+                                                <div
+                                                    class="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-primary to-indigo-600 rounded-full flex items-center justify-center shadow-xl transform rotate-12 group-hover:rotate-0 transition-transform duration-500">
+                                                    <svg class="w-8 h-8 text-white" fill="currentColor"
+                                                        viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z" />
+                                                    </svg>
+                                                </div>
+
+                                                <!-- Animated Star Rating -->
+                                                <div class="flex items-center justify-between mb-6">
+                                                    <div class="flex items-center gap-0.5">
+                                                        <span
+                                                            class="text-xl transform group-hover:scale-125 transition-transform duration-200 hover:animate-pulse"
+                                                            style="animation-delay: 0ms">⭐</span>
+                                                        <span
+                                                            class="text-xl transform group-hover:scale-125 transition-transform duration-200 hover:animate-pulse"
+                                                            style="animation-delay: 100ms">⭐</span>
+                                                        <span
+                                                            class="text-xl transform group-hover:scale-125 transition-transform duration-200 hover:animate-pulse"
+                                                            style="animation-delay: 200ms">⭐</span>
+                                                        <span
+                                                            class="text-xl transform group-hover:scale-125 transition-transform duration-200 hover:animate-pulse"
+                                                            style="animation-delay: 300ms">⭐</span>
+                                                        <span
+                                                            class="text-xl transform group-hover:scale-125 transition-transform duration-200 hover:animate-pulse"
+                                                            style="animation-delay: 400ms">⭐</span>
+                                                    </div>
+                                                    <!-- Google Badge -->
+                                                    <div
+                                                        class="flex items-center gap-1 px-3 py-1 bg-gray-50 rounded-full">
+                                                        <svg class="w-4 h-4" viewBox="0 0 24 24">
+                                                            <path fill="#4285F4"
+                                                                d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                                                            <path fill="#34A853"
+                                                                d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                                                            <path fill="#FBBC05"
+                                                                d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                                                            <path fill="#EA4335"
+                                                                d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+                                                        </svg>
+                                                        <span class="text-xs font-medium text-gray-600">Google</span>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Review Text with Enhanced Typography -->
+                                                <blockquote class="relative z-10">
+                                                    <p
+                                                        class="text-gray-700 leading-relaxed font-medium italic text-base group-hover:text-gray-800 transition-colors duration-300">
+                                                        "Went to this awesome dental clinic that's more than just a
+                                                        place for teeth. It's inspiring! The dentist who owns it is so
+                                                        dedicated, showing how hard work pays off. It's clean, modern,
+                                                        and the staff are super nice. The service is great..."</p>
+                                                </blockquote>
+
+                                                <!-- Enhanced Customer Profile Section -->
+                                                <div
+                                                    class="flex items-center gap-4 mt-6 pt-6 border-t border-gray-100/60 relative z-10 group/profile">
+                                                    <!-- Enhanced Customer Info -->
+                                                    <div class="flex-1 space-y-1 text-center">
+                                                        <h4
+                                                            class="font-bold text-gray-900 text-lg group-hover:text-primary transition-all duration-300 transform relative">
+                                                            Umair Jazree</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Review 2 - Premium Card Design -->
+                                    <div class="swiper-slide pb-8">
+                                        <div class="group relative">
+                                            <!-- Main Card -->
+                                            <div
+                                                class="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 relative overflow-hidden transform group-hover:-translate-y-1">
+                                                <!-- Animated Background Glow -->
+                                                <div
+                                                    class="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-transparent to-teal-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                                </div>
+
+                                                <!-- Floating Quote Icon -->
+                                                <div
+                                                    class="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-full flex items-center justify-center shadow-xl transform rotate-12 group-hover:rotate-0 transition-transform duration-500">
+                                                    <svg class="w-8 h-8 text-white" fill="currentColor"
+                                                        viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z" />
+                                                    </svg>
+                                                </div>
+
+                                                <!-- Animated Star Rating -->
+                                                <div class="flex items-center justify-between mb-6">
+                                                    <div class="flex items-center gap-0.5">
+                                                        <span
+                                                            class="text-xl transform group-hover:scale-125 transition-transform duration-200 hover:animate-pulse"
+                                                            style="animation-delay: 0ms">⭐</span>
+                                                        <span
+                                                            class="text-xl transform group-hover:scale-125 transition-transform duration-200 hover:animate-pulse"
+                                                            style="animation-delay: 100ms">⭐</span>
+                                                        <span
+                                                            class="text-xl transform group-hover:scale-125 transition-transform duration-200 hover:animate-pulse"
+                                                            style="animation-delay: 200ms">⭐</span>
+                                                        <span
+                                                            class="text-xl transform group-hover:scale-125 transition-transform duration-200 hover:animate-pulse"
+                                                            style="animation-delay: 300ms">⭐</span>
+                                                        <span
+                                                            class="text-xl transform group-hover:scale-125 transition-transform duration-200 hover:animate-pulse"
+                                                            style="animation-delay: 400ms">⭐</span>
+                                                    </div>
+                                                    <!-- Google Badge -->
+                                                    <div
+                                                        class="flex items-center gap-1 px-3 py-1 bg-gray-50 rounded-full">
+                                                        <svg class="w-4 h-4" viewBox="0 0 24 24">
+                                                            <path fill="#4285F4"
+                                                                d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                                                            <path fill="#34A853"
+                                                                d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                                                            <path fill="#FBBC05"
+                                                                d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                                                            <path fill="#EA4335"
+                                                                d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+                                                        </svg>
+                                                        <span class="text-xs font-medium text-gray-600">Google</span>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Review Text with Enhanced Typography -->
+                                                <blockquote class="relative z-10">
+                                                    <p
+                                                        class="text-gray-700 leading-relaxed font-medium italic text-base group-hover:text-gray-800 transition-colors duration-300">
+                                                        "Before this just accompanied husband but today I experienced
+                                                        the treatment here. The staff is so friendly & helpful. Always
+                                                        talk in a good tune. They update by whatsapp for confirmation,
+                                                        its good for people like me that always forgot..."</p>
+                                                </blockquote>
+
+                                                <!-- Customer Profile Section -->
+                                                <div
+                                                    class="flex items-center gap-4 mt-6 pt-6 border-t border-gray-100 relative z-10">
+                                                    <!-- Customer Info -->
+                                                    <div class="flex-1">
+                                                        <h4
+                                                            class="font-bold text-gray-900 text-lg group-hover:text-emerald-600 transition-colors duration-300">
+                                                            Nadzatul Aqmar</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Review 3 - Premium Card Design -->
+                                    <div class="swiper-slide pb-8">
+                                        <div class="group relative">
+                                            <!-- Main Card -->
+                                            <div
+                                                class="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 relative overflow-hidden transform group-hover:-translate-y-1">
+                                                <!-- Animated Background Glow -->
+                                                <div
+                                                    class="absolute inset-0 bg-gradient-to-br from-violet-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                                </div>
+
+                                                <!-- Floating Quote Icon -->
+                                                <div
+                                                    class="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-violet-500 to-purple-600 rounded-full flex items-center justify-center shadow-xl transform rotate-12 group-hover:rotate-0 transition-transform duration-500">
+                                                    <svg class="w-8 h-8 text-white" fill="currentColor"
+                                                        viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z" />
+                                                    </svg>
+                                                </div>
+
+                                                <!-- Animated Star Rating -->
+                                                <div class="flex items-center justify-between mb-6">
+                                                    <div class="flex items-center gap-0.5">
+                                                        <span
+                                                            class="text-xl transform group-hover:scale-125 transition-transform duration-200 hover:animate-pulse"
+                                                            style="animation-delay: 0ms">⭐</span>
+                                                        <span
+                                                            class="text-xl transform group-hover:scale-125 transition-transform duration-200 hover:animate-pulse"
+                                                            style="animation-delay: 100ms">⭐</span>
+                                                        <span
+                                                            class="text-xl transform group-hover:scale-125 transition-transform duration-200 hover:animate-pulse"
+                                                            style="animation-delay: 200ms">⭐</span>
+                                                        <span
+                                                            class="text-xl transform group-hover:scale-125 transition-transform duration-200 hover:animate-pulse"
+                                                            style="animation-delay: 300ms">⭐</span>
+                                                        <span
+                                                            class="text-xl transform group-hover:scale-125 transition-transform duration-200 hover:animate-pulse"
+                                                            style="animation-delay: 400ms">⭐</span>
+                                                    </div>
+                                                    <!-- Google Badge -->
+                                                    <div
+                                                        class="flex items-center gap-1 px-3 py-1 bg-gray-50 rounded-full">
+                                                        <svg class="w-4 h-4" viewBox="0 0 24 24">
+                                                            <path fill="#4285F4"
+                                                                d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                                                            <path fill="#34A853"
+                                                                d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                                                            <path fill="#FBBC05"
+                                                                d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                                                            <path fill="#EA4335"
+                                                                d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+                                                        </svg>
+                                                        <span class="text-xs font-medium text-gray-600">Google</span>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Review Text with Enhanced Typography -->
+                                                <blockquote class="relative z-10">
+                                                    <p
+                                                        class="text-gray-700 leading-relaxed font-medium italic text-base group-hover:text-gray-800 transition-colors duration-300">
+                                                        "Top notch service by the male doctor for teeth extraction.
+                                                        Highly recommended. Very smooth process without pain. Friendly
+                                                        staffs. Need to book appointment prior a day. Overall good. Will
+                                                        repeat to come here."</p>
+                                                </blockquote>
+
+                                                <!-- Customer Profile Section -->
+                                                <div
+                                                    class="flex items-center gap-4 mt-6 pt-6 border-t border-gray-100 relative z-10">
+                                                    <!-- Customer Info -->
+                                                    <div class="flex-1">
+                                                        <h4
+                                                            class="font-bold text-gray-900 text-lg group-hover:text-violet-600 transition-colors duration-300">
+                                                            Shaantoshini Loganahdan</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Review 4 - Premium Card Design -->
+                                    <div class="swiper-slide pb-8">
+                                        <div class="group relative">
+                                            <!-- Main Card -->
+                                            <div
+                                                class="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 relative overflow-hidden transform group-hover:-translate-y-1">
+                                                <!-- Animated Background Glow -->
+                                                <div
+                                                    class="absolute inset-0 bg-gradient-to-br from-sky-500/5 via-transparent to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                                </div>
+
+                                                <!-- Floating Quote Icon -->
+                                                <div
+                                                    class="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-sky-500 to-cyan-600 rounded-full flex items-center justify-center shadow-xl transform rotate-12 group-hover:rotate-0 transition-transform duration-500">
+                                                    <svg class="w-8 h-8 text-white" fill="currentColor"
+                                                        viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z" />
+                                                    </svg>
+                                                </div>
+
+                                                <!-- Animated Star Rating -->
+                                                <div class="flex items-center justify-between mb-6">
+                                                    <div class="flex items-center gap-0.5">
+                                                        <span
+                                                            class="text-xl transform group-hover:scale-125 transition-transform duration-200 hover:animate-pulse"
+                                                            style="animation-delay: 0ms">⭐</span>
+                                                        <span
+                                                            class="text-xl transform group-hover:scale-125 transition-transform duration-200 hover:animate-pulse"
+                                                            style="animation-delay: 100ms">⭐</span>
+                                                        <span
+                                                            class="text-xl transform group-hover:scale-125 transition-transform duration-200 hover:animate-pulse"
+                                                            style="animation-delay: 200ms">⭐</span>
+                                                        <span
+                                                            class="text-xl transform group-hover:scale-125 transition-transform duration-200 hover:animate-pulse"
+                                                            style="animation-delay: 300ms">⭐</span>
+                                                        <span
+                                                            class="text-xl transform group-hover:scale-125 transition-transform duration-200 hover:animate-pulse"
+                                                            style="animation-delay: 400ms">⭐</span>
+                                                    </div>
+                                                    <!-- Google Badge -->
+                                                    <div
+                                                        class="flex items-center gap-1 px-3 py-1 bg-gray-50 rounded-full">
+                                                        <svg class="w-4 h-4" viewBox="0 0 24 24">
+                                                            <path fill="#4285F4"
+                                                                d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                                                            <path fill="#34A853"
+                                                                d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                                                            <path fill="#FBBC05"
+                                                                d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                                                            <path fill="#EA4335"
+                                                                d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+                                                        </svg>
+                                                        <span class="text-xs font-medium text-gray-600">Google</span>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Review Text with Enhanced Typography -->
+                                                <blockquote class="relative z-10">
+                                                    <p
+                                                        class="text-gray-700 leading-relaxed font-medium italic text-base group-hover:text-gray-800 transition-colors duration-300">
+                                                        "Coming here to get a check up for gum pain, and the atmosphere as well as the services provided is very comfortable. This clinic is based on appointment, and it is very easy to make an appointment via WhatsApp. The staff is very helpful, and no need to wait for a long queue. Keep up the good work!"</p>
+                                                </blockquote>
+
+                                                <!-- Customer Profile Section -->
+                                                <div
+                                                    class="flex items-center gap-4 mt-6 pt-6 border-t border-gray-100 relative z-10">
+                                                    <!-- Customer Info -->
+                                                    <div class="flex-1">
+                                                        <h4
+                                                            class="font-bold text-gray-900 text-lg group-hover:text-sky-600 transition-colors duration-300">
+                                                            Amiratul Huda Karim</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Review 5 - Premium Card Design -->
+                                    <div class="swiper-slide pb-8">
+                                        <div class="group relative">
+                                            <!-- Main Card -->
+                                            <div
+                                                class="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 relative overflow-hidden transform group-hover:-translate-y-1">
+                                                <!-- Animated Background Glow -->
+                                                <div
+                                                    class="absolute inset-0 bg-gradient-to-br from-rose-500/5 via-transparent to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                                </div>
+
+                                                <!-- Floating Quote Icon -->
+                                                <div
+                                                    class="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-rose-500 to-pink-600 rounded-full flex items-center justify-center shadow-xl transform rotate-12 group-hover:rotate-0 transition-transform duration-500">
+                                                    <svg class="w-8 h-8 text-white" fill="currentColor"
+                                                        viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z" />
+                                                    </svg>
+                                                </div>
+
+                                                <!-- Animated Star Rating -->
+                                                <div class="flex items-center justify-between mb-6">
+                                                    <div class="flex items-center gap-0.5">
+                                                        <span
+                                                            class="text-xl transform group-hover:scale-125 transition-transform duration-200 hover:animate-pulse"
+                                                            style="animation-delay: 0ms">⭐</span>
+                                                        <span
+                                                            class="text-xl transform group-hover:scale-125 transition-transform duration-200 hover:animate-pulse"
+                                                            style="animation-delay: 100ms">⭐</span>
+                                                        <span
+                                                            class="text-xl transform group-hover:scale-125 transition-transform duration-200 hover:animate-pulse"
+                                                            style="animation-delay: 200ms">⭐</span>
+                                                        <span
+                                                            class="text-xl transform group-hover:scale-125 transition-transform duration-200 hover:animate-pulse"
+                                                            style="animation-delay: 300ms">⭐</span>
+                                                        <span
+                                                            class="text-xl transform group-hover:scale-125 transition-transform duration-200 hover:animate-pulse"
+                                                            style="animation-delay: 400ms">⭐</span>
+                                                    </div>
+                                                    <!-- Google Badge -->
+                                                    <div
+                                                        class="flex items-center gap-1 px-3 py-1 bg-gray-50 rounded-full">
+                                                        <svg class="w-4 h-4" viewBox="0 0 24 24">
+                                                            <path fill="#4285F4"
+                                                                d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                                                            <path fill="#34A853"
+                                                                d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                                                            <path fill="#FBBC05"
+                                                                d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                                                            <path fill="#EA4335"
+                                                                d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+                                                        </svg>
+                                                        <span class="text-xs font-medium text-gray-600">Google</span>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Review Text with Enhanced Typography -->
+                                                <blockquote class="relative z-10">
+                                                    <p
+                                                        class="text-gray-700 leading-relaxed font-medium italic text-base group-hover:text-gray-800 transition-colors duration-300">
+                                                        "Thank you Dr Razznie & team. Dr Raz is soft spoken and very gentle. I felt calm throughout procedure. Clinic is clean with good ambience too ❤️"</p>
+                                                </blockquote>
+
+                                                <!-- Customer Profile Section -->
+                                                <div
+                                                    class="flex items-center gap-4 mt-6 pt-6 border-t border-gray-100 relative z-10">
+                                                    <!-- Customer Info -->
+                                                    <div class="flex-1">
+                                                        <h4
+                                                            class="font-bold text-gray-900 text-lg group-hover:text-rose-600 transition-colors duration-300">
+                                                            Farihah Asri</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Ultra-Small Navigation Arrows -->
+
+                                <!-- Enhanced Pagination -->
+                                <div class="swiper-pagination reviews-pagination !bottom-[-40px] !relative"></div>
+                            </div>
                         </div>
                     </div> <!-- Emergency image -->
                     <div class="flex order-first lg:order-last">
@@ -1268,8 +1673,7 @@
                                 </svg>
                             </a>
                             <!-- Social item -->
-                            <a id="tiktok-link"
-                                title="Follow Klinik Pergigian Razz on TikTok" target="_blank"
+                            <a id="tiktok-link" title="Follow Klinik Pergigian Razz on TikTok" target="_blank"
                                 rel="noopener noreferrer">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                     <path fill="#1e293b"

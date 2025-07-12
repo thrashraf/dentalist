@@ -88,6 +88,29 @@ const swiperBlogPost = new Swiper('.swiper-2', {
     },
 });
 
+const swiperCustomerReviews = new Swiper('.swiper-customer-reviews', {
+    direction: 'horizontal',
+    loop: true,
+    autoplay: {
+        delay: 5000,
+        pauseOnMouseEnter: true,
+        disableOnInteraction: false,
+    },
+    slidesPerView: 1,
+    spaceBetween: 20,
+    effect: 'slide',
+    speed: 600,
+    navigation: {
+        nextEl: '.reviews-next',
+        prevEl: '.reviews-prev',
+    },
+    pagination: {
+        el: '.reviews-pagination',
+        clickable: true,
+        dynamicBullets: true,
+    },
+});
+
 
 // Services Fade Animation
 servicesItem.forEach(function(item, i, arr){
