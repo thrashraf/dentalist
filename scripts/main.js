@@ -92,14 +92,39 @@ const swiperCustomerReviews = new Swiper('.swiper-customer-reviews', {
     direction: 'horizontal',
     loop: true,
     autoplay: {
-        delay: 5000,
+        delay: 3000,
         pauseOnMouseEnter: true,
         disableOnInteraction: false,
     },
     slidesPerView: 1,
-    spaceBetween: 20,
+    spaceBetween: 16,
     effect: 'slide',
     speed: 600,
+    width: null,
+    allowTouchMove: true,
+    centeredSlides: false,
+    breakpoints: {
+        320: {
+            slidesPerView: 1,
+            spaceBetween: 16,
+            width: null,
+        },
+        640: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            width: null,
+        },
+        768: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            width: null,
+        },
+        1024: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            width: null,
+        },
+    },
     navigation: {
         nextEl: '.reviews-next',
         prevEl: '.reviews-prev',
