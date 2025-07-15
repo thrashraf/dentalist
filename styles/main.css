@@ -779,7 +779,7 @@ body{
 }
 
 .post-img::after{
-  background: url(../assets/images/logo.svg) center no-repeat;
+  background: url(../assets/images/new-logo.svg) center no-repeat;
 }
 
 .post-img:hover + .post-publish-date {
