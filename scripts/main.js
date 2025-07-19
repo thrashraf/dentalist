@@ -16,26 +16,26 @@ const aElement = document.querySelectorAll("a");
 // PreLoader
 window.addEventListener("load", function(){
     this.setTimeout(function(){
-        preLoader.classList.add("preload-hidden");
+        if (preLoader) preLoader.classList.add("preload-hidden");
     }, 2000);
     this.setTimeout(function(){
-        preLoader.remove();
+        if (preLoader) preLoader.remove();
     }, 3000);
 });
 
 
 // Mobile Menu Handler
 const mobileMenuShow = function() {
-    mobileMenuOverlay.classList.remove("hidden");
-    mobileMenuContainer.style.left = "0px";
+    if (mobileMenuOverlay) mobileMenuOverlay.classList.remove("hidden");
+    if (mobileMenuContainer) mobileMenuContainer.style.left = "0px";
 };
 const mobileMenuHidden = function() {
-    mobileMenuOverlay.classList.add("hidden");
-    mobileMenuContainer.style.left = "-320px";
+    if (mobileMenuOverlay) mobileMenuOverlay.classList.add("hidden");
+    if (mobileMenuContainer) mobileMenuContainer.style.left = "-320px";
 };
-mobileMenuToggle.addEventListener("click", mobileMenuShow);
-mobileMenuOverlay.addEventListener("click", mobileMenuHidden);
-mobileMenuClose.addEventListener("click", mobileMenuHidden);
+if (mobileMenuToggle) mobileMenuToggle.addEventListener("click", mobileMenuShow);
+if (mobileMenuOverlay) mobileMenuOverlay.addEventListener("click", mobileMenuHidden);
+if (mobileMenuClose) mobileMenuClose.addEventListener("click", mobileMenuHidden);
 
 
 // SwiperJS
@@ -138,26 +138,28 @@ const swiperCustomerReviews = new Swiper('.swiper-customer-reviews', {
 
 
 // Services Fade Animation
-servicesItem.forEach(function(item, i, arr){
-    item.addEventListener("mouseenter", function(){
-        arr.forEach(function(item){
-            item.style.opacity = "0.5";
-        });
-        item.style.opacity = "1";
-        servicesContents.style.opacity = "0.5";
-        servicesMoreButton.style.opacity = "0.5";
-    });
-});
-
-servicesItem.forEach(function(item, i, arr){
-    item.addEventListener("mouseleave", function(){
-        arr.forEach(function(item){
+if (servicesItem.length > 0) {
+    servicesItem.forEach(function(item, i, arr){
+        item.addEventListener("mouseenter", function(){
+            arr.forEach(function(item){
+                item.style.opacity = "0.5";
+            });
             item.style.opacity = "1";
+            if (servicesContents) servicesContents.style.opacity = "0.5";
+            if (servicesMoreButton) servicesMoreButton.style.opacity = "0.5";
         });
-        servicesContents.style.opacity = "1";
-        servicesMoreButton.style.opacity = "1";
     });
-});
+
+    servicesItem.forEach(function(item, i, arr){
+        item.addEventListener("mouseleave", function(){
+            arr.forEach(function(item){
+                item.style.opacity = "1";
+            });
+            if (servicesContents) servicesContents.style.opacity = "1";
+            if (servicesMoreButton) servicesMoreButton.style.opacity = "1";
+        });
+    });
+}
 
 
 // Section fade in Animation
@@ -180,42 +182,62 @@ sections.forEach(function(param) {
 });
 
 
-// WhatsApp Contact Form Handler
-const contactForm = document.getElementById("contactForm");
-if (contactForm) {
-    contactForm.addEventListener("submit", function(e) {
-        e.preventDefault();
+// WhatsApp Contact Form Handler - Ensure DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById("contactForm");
+    console.log(contactForm, "contactForm"); // For debugging purposes
+    
+    if (contactForm) {
+        console.log("Contact form found, attaching event listener"); // Debug log
         
-        const nameInput = document.getElementById("name");
-        const messageInput = document.getElementById("message");
-        
-        const name = nameInput.value.trim();
-        const message = messageInput.value.trim();
-        
-        if (name && message) {
-            // Format the WhatsApp message
-            const whatsappMessage = `Hello! My name is ${name}.%0A%0AMessage: ${message}%0A%0AThank you!`;
+        contactForm.addEventListener("submit", function(e) {
+            console.log("Form submission intercepted"); // Debug log
+            e.preventDefault();
+            e.stopPropagation();
             
-            // WhatsApp number (using the clinic's number)
-            const whatsappNumber = "60143442294";
+            const nameInput = document.getElementById("name");
+            const messageInput = document.getElementById("message");
             
-            // Create WhatsApp URL
-            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+            const name = nameInput.value.trim();
+            const message = messageInput.value.trim();
             
-            // Open WhatsApp
-            window.open(whatsappURL, '_blank');
+            console.log("Form data:", { name, message }); // Debug log
             
-            // Clear the form
-            nameInput.value = "";
-            messageInput.value = "";
+            if (name && message) {
+                // Format the WhatsApp message
+                const whatsappMessage = `Hello! My name is ${name}.%0A%0AMessage: ${message}%0A%0AThank you!`;
+                
+                // WhatsApp number (using the clinic's number)
+                const whatsappNumber = "60143442294";
+                
+                // Create WhatsApp URL
+                const whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+                
+                console.log("Opening WhatsApp URL:", whatsappURL); // For debugging purposes
+                
+                // Try opening WhatsApp using window.open first, then fallback to location change
+                try {
+                    window.open(whatsappURL, '_blank');
+                } catch (error) {
+                    console.log("window.open failed, using location.href", error);
+                    // Fallback to location.href if window.open fails
+                    window.location.href = whatsappURL;
+                }
+                
+                // Clear the form after successful submission
+                nameInput.value = "";
+                messageInput.value = "";
+            } else {
+                alert("Please fill in both name and message fields.");
+            }
             
-            // Show success message (optional)
-            alert("Redirecting to WhatsApp...");
-        } else {
-            alert("Please fill in both name and message fields.");
-        }
-    });
-}
+            // Ensure the form doesn't submit normally
+            return false;
+        });
+    } else {
+        console.error("Contact form not found!");
+    }
+});
 
 // Smooth scroll functionality for anchor links
 function smoothScrollToSection(targetId) {
@@ -242,7 +264,9 @@ aElement.forEach(function(item){
     });
 });
 
-document.getElementById('nav-link').addEventListener('click', e => {
+const navLink = document.getElementById('nav-link');
+if (navLink) {
+  navLink.addEventListener('click', e => {
     e.preventDefault();
 
     const lat = 1.5672702, lng = 103.6124648;
@@ -275,6 +299,7 @@ document.getElementById('nav-link').addEventListener('click', e => {
       setTimeout(() => tryScheme(i + 1), 500);
     })(0);
   });
+}
 
   const isMobile = () =>
     /android|iphone|ipad|ipod/i.test(navigator.userAgent || "");
@@ -302,34 +327,36 @@ document.getElementById('nav-link').addEventListener('click', e => {
    const tiktokLink = document.getElementById('tiktok-link');
   const fallbackUrl = 'https://www.tiktok.com/@razzdental';
 
-  tiktokLink.addEventListener('click', e => {
-    e.preventDefault();
-    const ua = navigator.userAgent;
+  if (tiktokLink) {
+    tiktokLink.addEventListener('click', e => {
+      e.preventDefault();
+      const ua = navigator.userAgent;
 
-    let url;
-    if (/Android/i.test(ua)) {
-      // Use Android Intent URI: opens app if installed, else fallback to browser
-      url = 
-        'intent://www.tiktok.com/@razzdental'
-        + '#Intent;package=com.zhiliaoapp.musically;'
-        + 'scheme=https;'
-        + 'S.browser_fallback_url='
-        + encodeURIComponent(fallbackUrl)
-        + ';end';
-    } else if (/iPhone|iPad|iPod/i.test(ua)) {
-      // Standard iOS scheme
-      url = 'tiktok://user?username=razzdental';
-    } else {
-      // Desktop or unknown — just open the web page
-      window.open(fallbackUrl, '_blank');
-      return;
-    }
+      let url;
+      if (/Android/i.test(ua)) {
+        // Use Android Intent URI: opens app if installed, else fallback to browser
+        url = 
+          'intent://www.tiktok.com/@razzdental'
+          + '#Intent;package=com.zhiliaoapp.musically;'
+          + 'scheme=https;'
+          + 'S.browser_fallback_url='
+          + encodeURIComponent(fallbackUrl)
+          + ';end';
+      } else if (/iPhone|iPad|iPod/i.test(ua)) {
+        // Standard iOS scheme
+        url = 'tiktok://user?username=razzdental';
+      } else {
+        // Desktop or unknown — just open the web page
+        window.open(fallbackUrl, '_blank');
+        return;
+      }
 
-    // Try to open the app...
-    window.location = url;
+      // Try to open the app...
+      window.location = url;
 
-    // ...and if after 500ms the app didn't handle it, fall back to web
-    setTimeout(() => {
-      window.open(fallbackUrl, '_blank');
-    }, 500);
-  });
+      // ...and if after 500ms the app didn't handle it, fall back to web
+      setTimeout(() => {
+        window.open(fallbackUrl, '_blank');
+      }, 500);
+    });
+  }
